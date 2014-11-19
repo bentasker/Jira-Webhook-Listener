@@ -90,7 +90,7 @@ class JWLRequest{
 	*
 	*/
 	function getIssueDescription(){
-	     return $this->request->issue->description;
+	     return $this->request->issue->fields->description;
 	}
 
 	/** Get the request object

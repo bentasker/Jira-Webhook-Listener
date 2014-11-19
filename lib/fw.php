@@ -52,7 +52,7 @@ class JWLFW{
 	    }
 
 	    $results = array();
-	    foreach ($this->config->actions as $action => $value){
+	    foreach ($this->config['actions'] as $action => $value){
 			$results[] = $this->fireAction($action,$value,'newissue');
 	    }
 
@@ -66,8 +66,8 @@ class JWLFW{
 	*/
 	private function loadProjConfig(){
 	    require 'config/config.php';
-	    if (isset($conf->projects[$this->project])){
-		  $this->config = $conf->projects[$this->project];
+	    if (isset($conf->Projects[$this->project])){
+		  $this->config = $conf->Projects[$this->project];
 		  $this->fireon = explode(",",$this->config['fireon']);
 		  return true;
 	    }
@@ -91,8 +91,8 @@ class JWLFW{
 	    require_once "actions/$act.action.php";
 	    $class = "FWL{$act}Action";
 
-	    new $class;
-	    $class->fire($event,$val,$this->request,$this->config);
+	    $ac = new $class;
+	    $ac->fire($event,$val,$this->request,$this->config);
 	}
 
 }

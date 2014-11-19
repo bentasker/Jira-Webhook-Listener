@@ -20,10 +20,10 @@ $conf->Projects = array(
 	      'actions' => array(
 		  'email' => 'foo@example.com,bar@example.com'
 	      ),
-	      'ProjectURLBase' => 'http://example.com/projects/',
+	      'ProjectURLBase' => 'http://example.com/projects', // No trailing slash
 	      'ProjectURLSuffix' => '.html'
 	  )
 
 
 
-)
+);

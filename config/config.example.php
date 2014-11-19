@@ -18,9 +18,10 @@ $conf->Projects = array(
 
 	      'fireon' => 'newissue,updatedissue',
 	      'actions' => array(
-		  'email' => 'foo@example.com,bar@example.com',
-	      )
-
+		  'email' => 'foo@example.com,bar@example.com'
+	      ),
+	      'ProjectURLBase' => 'http://example.com/projects/',
+	      'ProjectURLSuffix' => '.html'
 	  )
 
 

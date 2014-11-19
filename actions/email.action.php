@@ -16,8 +16,9 @@ class FWLemailAction{
 
 	  private $request;
       
-	  public function fire($event, $config, $request){
+	  public function fire($event, $plugin_config, $request,$project_config){
 		$this->request = $request;
+		$this->project_config = $project_config;
 
 
 		switch ($event){

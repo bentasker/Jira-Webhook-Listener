@@ -92,7 +92,7 @@ class JWLFW{
 	    $class = "FWL{$act}Action";
 
 	    new $class;
-	    $class->fire($event,$val,$this->request);
+	    $class->fire($event,$val,$this->request,$this->config);
 	}
 
 }

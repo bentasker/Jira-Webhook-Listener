@@ -80,7 +80,7 @@ class JWLRequest{
 	function getIssueType(){
 	    $type = $this->request->issue->fields->issuetype->name;
 	    if ($this->request->issue->fields->issuetype->subtask){
-		  $type .= ' Subtask'
+		  $type .= ' Subtask';
 	    }
 	    return $type;
 	}

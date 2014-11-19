@@ -19,19 +19,49 @@ class FWLemailAction{
 	  public function fire($event, $plugin_config, $request,$project_config){
 		$this->request = $request;
 		$this->project_config = $project_config;
+		$this->plugin_config = $plugin_config;
 
+		//$this->loadPluginConfig(); // TODO
 
 		switch ($event){
 		      case 'newissue':
 			    $email = $this->newIssue();
+			    $subject = "New Issue: {$this->request->getIssueKey()}";
 		      break;
 
 		}
 
+
+		$this->sendmail($email,$subject);
 	  }
 
 
-	  /** TODO
+	  /** Load the plugin configuration
+	  *
+	  * TODO
+	  *
+	  */
+	  private function loadPluginConfig(){
+		require_once 'config/email.action.config.php';
+		$this->config = $conf;
+	  }
+
+
+	  private function sendmail($body,$subject){
+		$headers = "BCC: {$this->plugin_config}\r\n" .
+			    "Content-Type: text/html\r\n";
+
+	    
+	    $fh = fopen('/tmp/emailacttest.txt','w');
+	    fwrite($fh,$headers.$subject.$body);
+	    fclose($fh);
+
+		mail('',$subject,$body,$headers);
+	  }
+
+
+
+	  /** Build an email notification specific to a new issue being raised
 	  *
 	  */
 	  private function newIssue(){
@@ -39,10 +69,13 @@ class FWLemailAction{
 	    $email = FWLemailHTML::newIssue($this->request,$urlpref,$urlend);
 
 	    // DEBUG
+
+	    /*
 	    $fh = fopen('/tmp/emailacttest.txt','w');
 	    fwrite($fh,$email);
-	    fclose($fh);
-	    return true;
+	    fclose($fh);*/
+
+	    return $email;
 	  }
 
 

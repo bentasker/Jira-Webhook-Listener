@@ -66,6 +66,33 @@ class JWLRequest{
 	}
 
 
+	/** Get the Issue Summary
+	*
+	*/
+	function getIssueTitle(){
+	      return $this->request->issue->fields->summary;
+	}
+
+
+	/** Get the Issue Type
+	*
+	*/
+	function getIssueType(){
+	    $type = $this->request->issue->fields->issuetype->name;
+	    if ($this->request->issue->fields->issuetype->subtask){
+		  $type .= ' Subtask'
+	    }
+	    return $type;
+	}
+
+
+	/** Get the Issue Description
+	*
+	*/
+	function getIssueDescription(){
+	     return $this->request->issue->description;
+	}
+
 	/** Get the request object
 	*
 	*/

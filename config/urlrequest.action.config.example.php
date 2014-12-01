@@ -15,4 +15,4 @@
 $conf->defaultprojectserver = 'https://www.example.com/projects';
 $conf->headers = array('X-Refresh-Mirror: 1');
 $conf->urlsuffix = '.html';
-
+$conf->projectURLS = array("EXAMPLE"=>array("base"=>'http://www.example.com/','suffix'=>'.html'));

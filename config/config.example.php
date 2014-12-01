@@ -18,7 +18,8 @@ $conf->Projects = array(
 
 	      'fireon' => 'newissue,updatedissue',
 	      'actions' => array(
-		  'email' => 'foo@example.com,bar@example.com'
+		  'email' => 'foo@example.com,bar@example.com',
+		  'urlrequest' => ''
 	      ),
 	      'ProjectURLBase' => 'http://example.com/projects', // No trailing slash
 	      'ProjectURLSuffix' => '.html'

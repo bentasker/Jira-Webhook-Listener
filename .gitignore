@@ -1,1 +1,4 @@
 *~
+config/config.php
+config/urlrequest.action.config.php
+config/email.action.config.php

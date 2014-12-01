@@ -21,6 +21,7 @@ class FWLurlrequestAction{
 		$this->project = $request->getIssueProject();
 		$this->loadPluginConfig();
 		$this->project_config = $project_config;
+		$this->plugin_config = explode(",",$plugin_config);
 
 		switch ($event){
 		      case 'newissue':
@@ -50,6 +51,16 @@ class FWLurlrequestAction{
 	  }
 
 
+
+	  /** Refresh a project's JIRA-HTML index page
+	  *
+	  */
+	  private function refreshIndex(){
+	      $url = $url = $this->config->projectserver . $this->project . $this->config->urlsuffix;
+	      $this->placeRequest($url);
+	  }
+
+
 	  /** Build an email notification specific to a new issue being raised
 	  *
 	  */
@@ -57,6 +68,11 @@ class FWLurlrequestAction{
 		$issue = $this->request->getIssueKey();
 		$url = $this->config->projectserver . $issue . $this->config->urlsuffix;
 		$this->placeRequest($url);
+
+
+		if (in_array('refreshIndex',$this->plugin_config)){
+			$this->refreshIndex();
+		}
 	  }
 
 

@@ -68,6 +68,7 @@ class FWLurlrequestAction{
 	      curl_setopt($ch,CURLOPT_URL, $url);
 	      curl_setopt($ch,CURLOPT_RETURNTRANSFER, 1);
 	      curl_setopt($ch,CURLOPT_HTTPHEADER, $this->config->headers);
+	      curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false); // Set so that self-signed certs can be used on the target domain if needed
 	      $data = curl_exec($ch);
 	      $httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 	      curl_close($ch);

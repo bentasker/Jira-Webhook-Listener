@@ -28,6 +28,10 @@ class FWLurlrequestAction{
 			    $this->newIssue();
 		      break;
 
+		      case 'updatedissue':
+			    $this->newIssue();
+		      break;
+
 		}
 	  }
 

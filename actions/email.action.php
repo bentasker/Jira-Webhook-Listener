@@ -133,6 +133,9 @@ class FWLemailHTML{
 	      </tr>
 
 	      <tr>
+                 <td>&nbsp;</td><td>&nbsp;</td>
+	      </tr>
+	      <tr>
 		<th colspan="2">Description</th>
 	      </tr>
 	      <tr>
@@ -140,6 +143,8 @@ class FWLemailHTML{
 	      </tr>
 
 	      </table>
+
+		View <?php echo $urlstart.$key.$urlend;?>
 	  <?php
 
 	  self::endHTML();

@@ -29,6 +29,8 @@ class FWLemailAction{
 			    $subject = "New Issue: {$this->request->getIssueKey()}";
 		      break;
 
+		      default:
+			    return;
 		}
 
 
